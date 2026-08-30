@@ -67,3 +67,17 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+# Raytracer Image Outputs
+*.ppm
+*.png
+output/
+images/
+
+# IDE / Editor Specific Files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
