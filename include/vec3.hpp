@@ -47,28 +47,28 @@ namespace machc {
 
         // vec3 Operators that modify the struct
 
-        inline vec3& operator-= (const vec3& v2){
+        vec3& operator-= (const vec3& v2){
             x -= v2.x;
             y -= v2.y;
             z -= v2.z;
             return *this;
         }
 
-        inline vec3& operator+= (const vec3& v2){
+        vec3& operator+= (const vec3& v2){
             x += v2.x;
             y += v2.y;
             z += v2.z;
             return *this;
         }
 
-        inline vec3& operator*= (const float a){
+        vec3& operator*= (const float a){
             x *= a;
             y *= a;
             z *= a;
             return *this;
         }
 
-        inline vec3& operator/= (const float a){
+        vec3& operator/= (const float a){
             float inv = 1.0f / a;
             x *= inv;
             y *= inv;
