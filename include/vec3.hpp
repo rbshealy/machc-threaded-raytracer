@@ -61,14 +61,14 @@ namespace machc {
             return *this;
         }
 
-        vec3& operator*= (const float a){
+        vec3& operator*= (float a){
             x *= a;
             y *= a;
             z *= a;
             return *this;
         }
 
-        vec3& operator/= (const float a){
+        vec3& operator/= (float a){
             float inv = 1.0f / a;
             x *= inv;
             y *= inv;
@@ -98,15 +98,15 @@ namespace machc {
         return vec3{v1.x - v2.x, v1.y - v2.y, v1.z - v2.z};
     }
 
-    [[nodiscard]] inline vec3 operator* (const vec3& v1, const float a){
+    [[nodiscard]] inline vec3 operator* (const vec3& v1, float a){
         return vec3{v1.x * a, v1.y * a, v1.z * a};
     }
 
-    [[nodiscard]] inline vec3 operator* (const float a, const vec3& v1) {
+    [[nodiscard]] inline vec3 operator* (float a, const vec3& v1) {
         return v1 * a;
     }
 
-    [[nodiscard]] inline vec3 operator/ (const vec3& v1, const float a){
+    [[nodiscard]] inline vec3 operator/ (const vec3& v1, float a){
         float inv = 1.0f / a;
         return vec3{v1.x * inv, v1.y * inv, v1.z * inv};
     }

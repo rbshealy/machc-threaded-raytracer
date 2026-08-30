@@ -14,7 +14,7 @@ namespace machc {
         ray(const point3& origin, const vec3& direction) : orig(origin), dir(direction){}
 
         //Returns the point along the ray at time t
-        [[nodiscard]] point3 at(float t){
+        [[nodiscard]] point3 at(float t) const {
             return orig + (t * dir);
         }
     
