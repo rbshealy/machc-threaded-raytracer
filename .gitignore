@@ -81,3 +81,4 @@ images/
 *.swo
 .DS_Store
 Thumbs.db
+.clangd
