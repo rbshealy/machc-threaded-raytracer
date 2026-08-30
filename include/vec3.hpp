@@ -27,17 +27,22 @@ namespace machc {
 
         //Returns dot product of this vector and another
         [[nodiscard]] float dot(const vec3& v2) const{
-            return 0.0f;
+            return x * v2.x + y * v2.y + z * v2.z;
         }
 
         //Returns cross product or vector orthoganal to this vector and another
         [[nodiscard]] vec3 cross(const vec3& v2) const{
-            return vec3();
+            return vec3{
+                (y * v2.z) - (z * v2.y),
+                (z * v2.x) - (x * v2.z),
+                (x * v2.y) - (y * v2.x)
+            };
         }
 
         //Returns a vector of length one pointing in this vector's direction
         [[nodiscard]] vec3 normalized() const{
-            return vec3();
+            float inv = 1.0f / length();
+            return vec3{x * inv, y * inv, z * inv};
         }
 
         // vec3 Operators that modify the struct
