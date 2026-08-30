@@ -40,18 +40,46 @@ namespace machc {
             return vec3();
         }
 
-        [[nodiscard]] inline vec3 operator+ (const vec3& v1, const vec3& v2){
-        return vec3{v1.x + v2.x, v1.y + v2.y, v1.z + v2.z};
-    }
-    
+        // vec3 Operators that modify the struct
+
+        inline vec3& operator-= (const vec3& v2){
+            x -= v2.x;
+            y -= v2.y;
+            z -= v2.z;
+            return *this;
+        }
+
+        inline vec3& operator+= (const vec3& v2){
+            x += v2.x;
+            y += v2.y;
+            z += v2.z;
+            return *this;
+        }
+
+        inline vec3& operator*= (const float a){
+            x *= a;
+            y *= a;
+            z *= a;
+            return *this;
+        }
+
+        inline vec3& operator/= (const float a){
+            float inv = 1.0f / a;
+            x *= inv;
+            y *= inv;
+            z *= inv;
+            return *this;
+        }
+
     };
+
 
     // Semantic aliases
     using color = vec3;
     using point3 = vec3;
 
 
-    // vec3 Operators
+    // vec3 Operators that do not modify the struct
 
     [[nodiscard]] inline vec3 operator- (const vec3& v1){
         return vec3{-v1.x, -v1.y, -v1.z};
@@ -70,7 +98,7 @@ namespace machc {
     }
 
     [[nodiscard]] inline vec3 operator* (const float a, const vec3& v1) {
-        return vec3{v1.x * a, v1.y * a, v1.z * a};
+        return v1 * a;
     }
 
     [[nodiscard]] inline vec3 operator/ (const vec3& v1, const float a){
