@@ -15,6 +15,8 @@ set(SOURCES
     src/main.cpp
     include/ray.hpp
     include/vec3.hpp
+    include/sphere.hpp
+    include/triangle.hpp
 )
 
 add_executable(machc_trace ${SOURCES}) 
