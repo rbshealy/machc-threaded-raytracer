@@ -13,10 +13,13 @@ find_package(Threads REQUIRED)
 
 set(SOURCES 
     src/main.cpp
+    src/camera.cpp
     include/ray.hpp
     include/vec3.hpp
     include/sphere.hpp
     include/triangle.hpp
+    include/material.hpp
+    include/hittable.hpp
 )
 
 add_executable(machc_trace ${SOURCES}) 
