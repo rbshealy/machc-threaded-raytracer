@@ -2,6 +2,10 @@
 #include "ray.hpp"
 #include "hittable.hpp"
 
+/**
+ * @file sphere.hpp
+ * @brief Sphere struct with hit method to calculate ray intersection
+ */
 namespace machc {
     struct Sphere {
         point3 center;
@@ -27,7 +31,7 @@ namespace machc {
             float t = (-bdiv2 - std::sqrt(discrim)) / a; // because of the math trick we did the entire quadratic is simpiler and can drop extra multiplies
 
             if (t < t_min || t > t_max){
-                t = (-bdiv2 + std::sqrt(discrim)) / a;
+                t = (-bdiv2 + std::sqrt(discrim)) / a; // check farther one if closer intersection is not valid
 
                 if (t < t_min || t > t_max){
                     return false;

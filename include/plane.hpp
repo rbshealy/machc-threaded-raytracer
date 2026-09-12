@@ -5,6 +5,10 @@
 #include "hittable.hpp"
 #include <cstdint>
 
+/**
+ * @file plane.hpp
+ * @brief Plane struct with hit method to calculate ray intersection
+ */
 namespace machc{
     struct Plane{
         point3 point;

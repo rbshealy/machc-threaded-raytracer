@@ -11,7 +11,7 @@ namespace machc {
         vec3 dv; //vertical pixel vector
     };
 
-    [[nodiscard]] Camera init_camera(const point3& lookfrom, const point3& lookat, const vec3& vup, float vfov, float aspect_ratio);
+    [[nodiscard]] Camera init_camera(const point3& lookfrom, const point3& lookat, const vec3& vup, float vfov, float aspect_ratio, int image_width, int image_height);
     [[nodiscard]] inline Ray get_ray(const Camera& cam, float u, float v) {
         return Ray(cam.origin,(u * cam.du) + (v * cam.dv) + cam.top_left_corner - cam.origin);
     }

@@ -21,7 +21,7 @@ namespace machc {
             bool h = false;
 
             for (const Geometry& obj : objects){
-                HitRecord temp_rec;
+                HitRecord temp_rec; // temp rec to be copied into rec if valid hit
 
                 if (machc::hit(obj,r,t_min,t_max,temp_rec)){
                     t_max = temp_rec.t;
