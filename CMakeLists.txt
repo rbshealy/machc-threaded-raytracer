@@ -11,15 +11,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 find_package(Threads REQUIRED)
 
-set(SOURCES 
-    src/main.cpp
-    src/camera.cpp
-    include/ray.hpp
-    include/vec3.hpp
-    include/sphere.hpp
-    include/triangle.hpp
-    include/material.hpp
-    include/hittable.hpp
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp"
 )
 
 add_executable(machc_trace ${SOURCES}) 
