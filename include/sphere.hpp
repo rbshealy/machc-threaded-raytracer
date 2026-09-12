@@ -11,7 +11,7 @@ namespace machc {
         Sphere() : center(point3(0, 0, 0)), radius(1.0f), material_index(0) {}
         Sphere(const point3& center, float radius, uint32_t material_index) : center(center), radius(radius), material_index(material_index) {}
 
-        bool hit (const ray& r, float t_min, float t_max, HitRecord& rec){
+        bool inline hit (const ray& r, float t_min, float t_max, HitRecord& rec){
             vec3 oc = r.orig - center;
 
             float a = r.dir.length_squared();
