@@ -11,9 +11,9 @@ namespace machc{
         vec3 normal;
         uint32_t material_index;
 
-        Plane(point3& pnt, vec3& nml, uint32_t mat_index) : point(pnt), normal(nml), material_index(mat_index) {}
+        Plane(const point3& pnt,const vec3& nml, uint32_t mat_index) : point(pnt), normal(nml), material_index(mat_index) {}
 
-        inline bool hit(Ray& r, float t_min, float t_max, HitRecord& rec) const {
+        inline bool hit(const Ray& r, float t_min, float t_max, HitRecord& rec) const {
             float epsilon = 1e-6f; // may need to adjust to be smaller later depending on results
             float denom = r.dir.dot(normal);
 

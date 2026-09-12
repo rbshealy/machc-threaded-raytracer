@@ -15,15 +15,22 @@ namespace machc {
         uint32_t add_material(const Material& mat);
         void add_object(const Geometry& obj);
 
-        inline bool hit(Ray& r, HitRecord& rec){
+        inline bool hit(const Ray& r, HitRecord& rec) const {
             float t_min = 0.001f;
             float t_max = std::numeric_limits<float>::infinity();
+            bool h = false;
 
-            for (Geometry obj : objects){
-                if (...){
-                    t_max = rec.t;
+            for (const Geometry& obj : objects){
+                HitRecord temp_rec;
+
+                if (machc::hit(obj,r,t_min,t_max,temp_rec)){
+                    t_max = temp_rec.t;
+                    h = true; //hit flag
+                    rec = temp_rec;
                 }
             }
+
+            return h;
         }
     };
 }
