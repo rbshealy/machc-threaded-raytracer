@@ -12,8 +12,8 @@ namespace machc {
     };
 
     [[nodiscard]] Camera init_camera(const point3& lookfrom, const point3& lookat, const vec3& vup, float vfov, float aspect_ratio);
-    [[nodiscard]] inline ray get_ray(const Camera& cam, float u, float v) {
-        return ray(cam.origin,(u * cam.du) + (v * cam.dv) + cam.top_left_corner - cam.origin);
+    [[nodiscard]] inline Ray get_ray(const Camera& cam, float u, float v) {
+        return Ray(cam.origin,(u * cam.du) + (v * cam.dv) + cam.top_left_corner - cam.origin);
     }
 }
 

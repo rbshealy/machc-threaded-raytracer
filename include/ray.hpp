@@ -6,16 +6,16 @@
  * @brief Ray 3D struct with essential operations for the raytracer
  */
 namespace machc {
-    struct ray{
-        point3 orig;
+    struct Ray{
+        point3 origin;
         vec3 dir;
 
-        ray() = default;
-        ray(const point3& origin, const vec3& direction) : orig(origin), dir(direction){}
+        Ray() = default;
+        Ray(const point3& origin, const vec3& direction) : origin(origin), dir(direction){}
 
         //Returns the point along the ray at time t
         [[nodiscard]] point3 at(float t) const {
-            return orig + (t * dir);
+            return origin + (t * dir);
         }
     
     };

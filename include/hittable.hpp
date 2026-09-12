@@ -17,7 +17,7 @@
 
 
         //unit_outward_normal needs to be a unit vector for light calculations
-        void calc_normal(const ray& r, const vec3& unit_outward_normal){
+        void calc_normal(const Ray& r, const vec3& unit_outward_normal){
             outside_hit = r.dir.dot(unit_outward_normal) < 0.0f;
             normal = outside_hit ? unit_outward_normal : -unit_outward_normal;
         }
