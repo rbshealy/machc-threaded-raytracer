@@ -8,4 +8,5 @@
 
 namespace machc {
     using Geometry = std::variant<Sphere, Triangle, Plane>;
+    
 }

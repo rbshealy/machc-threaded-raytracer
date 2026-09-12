@@ -13,7 +13,7 @@ namespace machc{
 
         Plane(point3& pnt, vec3& nml, uint32_t mat_index) : point(pnt), normal(nml), material_index(mat_index) {}
 
-        bool inline hit(Ray& r, float t_min, float t_max, HitRecord& rec){
+        inline bool hit(Ray& r, float t_min, float t_max, HitRecord& rec){
             float epsilon = 1e-6f; // may need to adjust to be smaller later depending on results
             float denom = r.dir.dot(normal);
 
