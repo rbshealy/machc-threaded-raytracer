@@ -18,7 +18,7 @@ namespace machc {
         Triangle(const point3& v0, const point3& v1, const point3& v2, uint32_t material_index) : v0(v0), v1(v1), v2(v2), material_index(material_index) {}
 
         // can be done by solving a 3x3 system but Moller-Trumbore algorithm is more efficient
-        inline bool hit(const Ray& r, float t_min, float t_max, HitRecord& rec) {
+        inline bool hit(const Ray& r, float t_min, float t_max, HitRecord& rec) const {
             float epsilon = 1e-6f; //Moller-Trumbore recommends epsilon of 1e-6f, may need to adjust later for shadow acne or if objects are far from the origin
 
             vec3 edge1 = v1 - v0;
