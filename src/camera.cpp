@@ -19,12 +19,13 @@ namespace machc {
         float viewport_width = viewport_height * aspect_ratio;
 
         vec3 viewport_horizontal = viewport_width * u;
-        vec3 viewport_vertical = viewport_height * v;
+        vec3 viewport_vertical = viewport_height * -v;
 
         cam.du = viewport_horizontal / static_cast<float>(image_width);
         cam.dv = viewport_vertical / static_cast<float>(image_height);
 
-        cam.lower_left_corner = cam.origin - (viewport_horizontal * 0.5f) - (viewport_vertical * 0.5f) - w;
+        cam.top_left_corner = cam.origin - (viewport_horizontal * 0.5f) - (viewport_vertical * 0.5f) - w;
+        cam.top_left_corner += (cam.du * 0.5f) + (cam.dv * 0.5f); //midpoint of the pixel offset
 
         return cam;
     }
