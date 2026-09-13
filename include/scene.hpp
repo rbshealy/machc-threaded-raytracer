@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <limits>
 #include <vector>
+#include "camera.hpp"
 
 
 namespace machc {
@@ -33,4 +34,8 @@ namespace machc {
             return h;
         }
     };
+
+    //takes in a camera ref and modifies it while building the scene. Return Scene struct
+    Scene scene_one();
+    Scene scene_two();
 }
