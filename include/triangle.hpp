@@ -1,4 +1,5 @@
 #pragma once
+#include "constants.hpp"
 #include "vec3.hpp"
 #include "ray.hpp"
 #include "hittable.hpp"
@@ -19,8 +20,6 @@ namespace machc {
 
         // can be done by solving a 3x3 system but Moller-Trumbore algorithm is more efficient
         inline bool hit(const Ray& r, float t_min, float t_max, HitRecord& rec) const {
-            float epsilon = 1e-6f; //Moller-Trumbore recommends epsilon of 1e-6f, may need to adjust later for shadow acne or if objects are far from the origin
-
             vec3 edge1 = v1 - v0;
             vec3 edge2 = v2 - v0;
 
@@ -28,7 +27,7 @@ namespace machc {
             float area = edge1.dot(dXedge2); //get area of paralleliped formed by edge1, edge2, and ray dir (scalar triple product)
             // will reuse this later for speed instead of calculating other denomenators
 
-            if (std::abs(area) < epsilon){
+            if (std::abs(area) < constants::epsilon){
                 return false; // if 3 vectors are coplanar we throw them out, either the ray is on the triangle or parallel
             }
 

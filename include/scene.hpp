@@ -1,5 +1,6 @@
 #pragma once
 
+#include "constants.hpp"
 #include "geometry.hpp"
 #include "material.hpp"
 #include <cstdint>
@@ -17,7 +18,7 @@ namespace machc {
         void add_object(const Geometry& obj);
 
         inline bool hit(const Ray& r, HitRecord& rec) const {
-            float t_min = 0.001f;
+            float t_min = constants::ray_origin_offset; //used to avoid shadow acne
             float t_max = std::numeric_limits<float>::infinity();
             bool h = false;
 
